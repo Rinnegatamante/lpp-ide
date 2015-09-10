@@ -16,12 +16,51 @@ Public Class Form1
 
     'New Project button
     Private Sub NewProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewProjectToolStripMenuItem.Click
+        Dim i As Integer = 0
+        While i < Globals.pages
+            If Not Globals.saved(i) Then
+                Dim result As Integer = MessageBox.Show("Some scripts needs to be saved to not lose your changes. Do you want to save the project before creating a new ones?", "Warning", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    Dim z As Integer = 0
+                    While z < Globals.pages
+                        Globals.SaveFile(i)
+                        z = z + 1
+                    End While
+                End If
+                Exit While
+            End If
+        End While
+        TabControl1.TabPages.Clear()
+        Globals.pages = 0
+        Globals.index = 0
+
+        'Disable project buttons
+        NewScriptToolStripMenuItem.Enabled = False
+        OpenScriptToolStripMenuItem.Enabled = False
+        SaveFileToolStripMenuItem.Enabled = False
+        SaveProjectToolStripMenuItem.Enabled = False
+        CloseProjectToolStripMenuItem.Enabled = False
+
         NewProject.Show()
     End Sub
 
     'Exit button
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-
+        Dim i As Integer = 0
+        While i < Globals.pages
+            If Not Globals.saved(i) Then
+                Dim result As Integer = MessageBox.Show("Some scripts needs to be saved to not lose your changes. Do you want to save the project before exiting?", "Warning", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    Dim z As Integer = 0
+                    While z < Globals.pages
+                        Globals.SaveFile(i)
+                        z = z + 1
+                    End While
+                End If
+                Exit While
+                End If
+        End While
+        Me.Close()
     End Sub
 
     'Save Script button
@@ -43,6 +82,32 @@ Public Class Form1
         End While
     End Sub
 
+    Private Sub CloseProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseProjectToolStripMenuItem.Click
+        Dim i As Integer = 0
+        While i < Globals.pages
+            If Not Globals.saved(i) Then
+                Dim result As Integer = MessageBox.Show("Some scripts needs to be saved to not lose your changes. Do you want to save the project before closing it?", "Warning", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    Dim z As Integer = 0
+                    While z < Globals.pages
+                        Globals.SaveFile(i)
+                        z = z + 1
+                    End While
+                End If
+                Exit While
+            End If
+        End While
+        TabControl1.TabPages.Clear()
+        Globals.pages = 0
+        Globals.index = 0
+
+        'Disable project buttons
+        NewScriptToolStripMenuItem.Enabled = False
+        OpenScriptToolStripMenuItem.Enabled = False
+        SaveFileToolStripMenuItem.Enabled = False
+        SaveProjectToolStripMenuItem.Enabled = False
+        CloseProjectToolStripMenuItem.Enabled = False
+    End Sub
 End Class
 
 Public Class Globals
@@ -77,6 +142,7 @@ Public Class Globals
         'Set TextEditor properties
         page.Controls.Add(editor)
         editor.Dock = DockStyle.Fill
+        editor.TextEditor.ShowLineNumbers = True
 
         'Set TextEditor callbacks
         AddHandler(editor.TextEditor.TextChanged), AddressOf Editor_TextChanged
