@@ -1,0 +1,15 @@
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\bin\Debug\Lua Player Plus IDE.exe.config
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\bin\Debug\Lua Player Plus IDE.exe
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\bin\Debug\Lua Player Plus IDE.pdb
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\bin\Debug\Lua Player Plus IDE.xml
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\bin\Debug\ICSharpCode.AvalonEdit.dll
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\bin\Debug\ICSharpCode.AvalonEdit.xml
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua Player Plus IDE.vbprojResolveAssemblyReference.cache
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua_Player_Plus_IDE.Resources.resources
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua Player Plus IDE.vbproj.GenerateResource.Cache
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua Player Plus IDE.exe
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua Player Plus IDE.xml
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua Player Plus IDE.pdb
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua_Player_Plus_IDE.Form1.resources
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua_Player_Plus_IDE.NewProject.resources
+C:\ProgramData\BlueStacks\UserData\Library\My Apps\Documents\Visual Studio 2015\Projects\Lua Player Plus IDE\Lua Player Plus IDE\lpp-ide\Lua Player Plus IDE\obj\Debug\Lua_Player_Plus_IDE.NameScript.resources

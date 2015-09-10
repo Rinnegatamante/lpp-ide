@@ -1,0 +1,84 @@
+﻿<SyntaxDefinition name="Lua" extensions=".lua" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="Comment" foreground="Green" />
+	<Color name="String" foreground="Brown" />
+	<RuleSet>
+    <Span color="Comment" multiline="true">
+      <Begin>--\[\[</Begin>
+      <End>\]\]--</End>
+    </Span>
+		<Span color="Comment" ruleSet="comments set" multiline="false">
+			<Begin>--</Begin>
+		</Span>
+		<Span color="String">
+			<Begin>"</Begin>
+			<End>"</End>
+			<RuleSet>
+				<Span begin="\\" end="." />
+			</RuleSet>
+		</Span>
+		<Span color="String">
+			<Begin>'</Begin>
+			<End>'</End>
+			<RuleSet>
+				<Span begin="\\" end="." />
+			</RuleSet>
+		</Span>
+		<Span foreground="#FFFF6600">
+			<Begin>/(?!(\ ))</Begin>
+			<End>/</End>
+		</Span>
+		<Keywords foreground="DarkCyan">
+      <Word>true</Word>
+      <Word>false</Word>
+      <Word>nil</Word>
+		</Keywords>
+		<Keywords foreground="Blue">
+			<Word>else</Word>
+			<Word>if</Word>
+      <Word>elseif</Word>
+			<Word>case</Word>
+			<Word>for</Word>
+			<Word>while</Word>
+      <Word>then</Word>
+      <Word>end</Word>
+      <Word>function</Word>
+      <Word>self</Word>
+      <Word>do</Word>
+      <Word>local</Word>
+      <Word>break</Word>
+      <Word>return</Word>
+      <Word>and</Word>
+      <Word>or</Word>
+      <Word>not</Word>
+		</Keywords>
+    <Keywords foreground="Red">
+      <Word>System</Word>
+      <Word>Screen</Word>
+      <Word>Graphics</Word>
+      <Word>Network</Word>
+      <Word>Sound</Word>
+      <Word>BMPV</Word>
+      <Word>JPGV</Word>
+      <Word>Color</Word>
+      <Word>io</Word>
+      <Word>math</Word>
+      <Word>string</Word>
+      <Word>Font</Word>
+      <Word>Controls</Word>
+      <Word>Timer</Word>
+    </Keywords>
+	</RuleSet>
+	<RuleSet name="comments set">
+		<!-- allows nested /**/ comments, coloring them Green/Teal alternately -->
+		<Span foreground="Teal" multiline="true">
+			<Begin>--\[\[</Begin>
+			<End>\]\]--</End>
+			<RuleSet>
+				<Span color="Comment" ruleSet="comments set" multiline="true">
+          <Begin>--\[\[</Begin>
+          <End>\]\]--</End>
+				</Span>
+			</RuleSet>
+		</Span>
+	</RuleSet>
+</SyntaxDefinition>
