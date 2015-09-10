@@ -25,6 +25,7 @@
         Globals.saved(0) = True
         Globals.editors(0) = editor
         Globals.index = 0
+        Globals.pages = 1
 
         'Enable project buttons
         Form1.NewScriptToolStripMenuItem.Enabled = True
