@@ -26,13 +26,10 @@ Partial Class Form1
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewScriptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenScriptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.CloseProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,15 +41,17 @@ Partial Class Form1
         Me.ReleaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompileProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompileScriptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.BuildProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ThemeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WhiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.SearchToolStripMenuItem, Me.SyntaxToolStripMenuItem, Me.DebugToolStripMenuItem, Me.ReleaseToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.SearchToolStripMenuItem, Me.SyntaxToolStripMenuItem, Me.DebugToolStripMenuItem, Me.ReleaseToolStripMenuItem, Me.ThemeToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1176, 24)
@@ -61,7 +60,7 @@ Partial Class Form1
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewProjectToolStripMenuItem, Me.NewScriptToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenProjectToolStripMenuItem, Me.OpenScriptToolStripMenuItem, Me.ToolStripSeparator2, Me.SaveProjectToolStripMenuItem, Me.SaveFileToolStripMenuItem, Me.ToolStripSeparator3, Me.CloseProjectToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewProjectToolStripMenuItem, Me.NewScriptToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.OpenScriptToolStripMenuItem, Me.SaveProjectToolStripMenuItem, Me.SaveFileToolStripMenuItem, Me.CloseProjectToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -69,69 +68,54 @@ Partial Class Form1
         'NewProjectToolStripMenuItem
         '
         Me.NewProjectToolStripMenuItem.Name = "NewProjectToolStripMenuItem"
-        Me.NewProjectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewProjectToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.NewProjectToolStripMenuItem.Text = "New Project"
         '
         'NewScriptToolStripMenuItem
         '
         Me.NewScriptToolStripMenuItem.Enabled = False
         Me.NewScriptToolStripMenuItem.Name = "NewScriptToolStripMenuItem"
-        Me.NewScriptToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewScriptToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.NewScriptToolStripMenuItem.Text = "New Script"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'OpenProjectToolStripMenuItem
         '
         Me.OpenProjectToolStripMenuItem.Name = "OpenProjectToolStripMenuItem"
-        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenProjectToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.OpenProjectToolStripMenuItem.Text = "Open Project"
         '
         'OpenScriptToolStripMenuItem
         '
         Me.OpenScriptToolStripMenuItem.Enabled = False
         Me.OpenScriptToolStripMenuItem.Name = "OpenScriptToolStripMenuItem"
-        Me.OpenScriptToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenScriptToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.OpenScriptToolStripMenuItem.Text = "Open Script"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(149, 6)
         '
         'SaveProjectToolStripMenuItem
         '
         Me.SaveProjectToolStripMenuItem.Enabled = False
         Me.SaveProjectToolStripMenuItem.Name = "SaveProjectToolStripMenuItem"
-        Me.SaveProjectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveProjectToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SaveProjectToolStripMenuItem.Text = "Save Project"
         '
         'SaveFileToolStripMenuItem
         '
         Me.SaveFileToolStripMenuItem.Enabled = False
         Me.SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem"
-        Me.SaveFileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveFileToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SaveFileToolStripMenuItem.Text = "Save File"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(149, 6)
         '
         'CloseProjectToolStripMenuItem
         '
         Me.CloseProjectToolStripMenuItem.Enabled = False
         Me.CloseProjectToolStripMenuItem.Name = "CloseProjectToolStripMenuItem"
-        Me.CloseProjectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CloseProjectToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.CloseProjectToolStripMenuItem.Text = "Close Project"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'ModifyToolStripMenuItem
@@ -175,7 +159,7 @@ Partial Class Form1
         '
         'ReleaseToolStripMenuItem
         '
-        Me.ReleaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CompileProjectToolStripMenuItem, Me.CompileScriptToolStripMenuItem, Me.ToolStripSeparator4, Me.BuildProjectToolStripMenuItem})
+        Me.ReleaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CompileProjectToolStripMenuItem, Me.CompileScriptToolStripMenuItem, Me.BuildProjectToolStripMenuItem})
         Me.ReleaseToolStripMenuItem.Name = "ReleaseToolStripMenuItem"
         Me.ReleaseToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
         Me.ReleaseToolStripMenuItem.Text = "Release"
@@ -194,11 +178,6 @@ Partial Class Form1
         Me.CompileScriptToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.CompileScriptToolStripMenuItem.Text = "Compile Script"
         '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(156, 6)
-        '
         'BuildProjectToolStripMenuItem
         '
         Me.BuildProjectToolStripMenuItem.Enabled = False
@@ -206,9 +185,30 @@ Partial Class Form1
         Me.BuildProjectToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.BuildProjectToolStripMenuItem.Text = "Build Project"
         '
+        'ThemeToolStripMenuItem
+        '
+        Me.ThemeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.WhiteToolStripMenuItem, Me.DarkToolStripMenuItem})
+        Me.ThemeToolStripMenuItem.Name = "ThemeToolStripMenuItem"
+        Me.ThemeToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.ThemeToolStripMenuItem.Text = "Theme"
+        '
+        'WhiteToolStripMenuItem
+        '
+        Me.WhiteToolStripMenuItem.Name = "WhiteToolStripMenuItem"
+        Me.WhiteToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.WhiteToolStripMenuItem.Text = "White"
+        '
+        'DarkToolStripMenuItem
+        '
+        Me.DarkToolStripMenuItem.Name = "DarkToolStripMenuItem"
+        Me.DarkToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.DarkToolStripMenuItem.Text = "Dark"
+        '
         'TabControl1
         '
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
+        Me.TabControl1.HotTrack = True
         Me.TabControl1.Location = New System.Drawing.Point(0, 24)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -236,13 +236,10 @@ Partial Class Form1
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents NewProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NewScriptToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents OpenProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenScriptToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents SaveProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveFileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents CloseProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModifyToolStripMenuItem As ToolStripMenuItem
@@ -254,6 +251,8 @@ Partial Class Form1
     Friend WithEvents ReleaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CompileProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CompileScriptToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents BuildProjectToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ThemeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents WhiteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DarkToolStripMenuItem As ToolStripMenuItem
 End Class
