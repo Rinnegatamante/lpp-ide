@@ -1,19 +1,11 @@
 ﻿Public Class NameScript
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If TextBox1.Text = "" Then
-            Error ("Invalid name")
+            MessageBox.Show("Invalid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            Dim i = 0
-            Dim not_found As Boolean = True
-            While (i < Globals.pages) And (not_found)
-                If TextBox1.Text = (Globals.names(i) & ".lua") Then
-                    Error ("Invalid name")
-                    not_found = False
-                Else
-                    i = i + 1
-                End If
-            End While
-            If not_found Then
+            If Globals.CheckScript(TextBox1.Text & ".lua") Then
+                MessageBox.Show("This script already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
 
                 'Create new script
                 Dim page As New TabPage
