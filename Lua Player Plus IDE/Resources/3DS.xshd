@@ -32,7 +32,7 @@
       <Word>false</Word>
       <Word>nil</Word>
 		</Keywords>
-		<Keywords foreground="Blue">
+		<Keywords foreground="SteelBlue">
 			<Word>else</Word>
 			<Word>if</Word>
       <Word>elseif</Word>
@@ -66,6 +66,24 @@
       <Word>Font</Word>
       <Word>Controls</Word>
       <Word>Timer</Word>
+    </Keywords>
+    <Keywords foreground="Orange">
+      <Word>TOP_SCREEN</Word>
+      <Word>BOTTOM_SCREEN</Word>
+      <Word>KEY_A</Word>
+      <Word>KEY_B</Word>
+      <Word>KEY_X</Word>
+      <Word>KEY_Y</Word>
+      <Word>KEY_DUP</Word>
+      <Word>KEY_DDOWN</Word>
+      <Word>KEY_DRIGHT</Word>
+      <Word>KEY_DLEFT</Word>
+      <Word>KEY_TOUCH</Word>
+      <Word>KEY_L</Word>
+      <Word>KEY_R</Word>
+      <Word>FREAD</Word>
+      <Word>FWRITE</Word>
+      <Word>FCREATE</Word>
     </Keywords>
 	</RuleSet>
 	<RuleSet name="comments set">
