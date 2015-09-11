@@ -17,8 +17,8 @@
         Globals.project_path = TextBox2.Text
 
         'Create needed folders
-        If Not System.IO.Directory.Exists(TextBox2.Text & "/Release") Then
-            System.IO.Directory.CreateDirectory(TextBox2.Text & "/Release")
+        If Not System.IO.Directory.Exists(TextBox2.Text & "\Release") Then
+            System.IO.Directory.CreateDirectory(TextBox2.Text & "\Release")
         End If
 
         'Create new script (index.lua)
