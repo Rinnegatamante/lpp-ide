@@ -35,13 +35,24 @@ Partial Class Form1
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.CloseProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SyntaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Lpp3dsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DebugProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReleaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CompileProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CompileScriptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BuildProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.SearchToolStripMenuItem, Me.SyntaxToolStripMenuItem, Me.DebugToolStripMenuItem, Me.ReleaseToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1176, 24)
@@ -123,6 +134,78 @@ Partial Class Form1
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
+        'ModifyToolStripMenuItem
+        '
+        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.ModifyToolStripMenuItem.Text = "Modify"
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.SearchToolStripMenuItem.Text = "Search"
+        '
+        'SyntaxToolStripMenuItem
+        '
+        Me.SyntaxToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Lpp3dsToolStripMenuItem})
+        Me.SyntaxToolStripMenuItem.Name = "SyntaxToolStripMenuItem"
+        Me.SyntaxToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.SyntaxToolStripMenuItem.Text = "Syntax"
+        '
+        'Lpp3dsToolStripMenuItem
+        '
+        Me.Lpp3dsToolStripMenuItem.Name = "Lpp3dsToolStripMenuItem"
+        Me.Lpp3dsToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.Lpp3dsToolStripMenuItem.Text = "lpp-3ds"
+        '
+        'DebugToolStripMenuItem
+        '
+        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DebugProjectToolStripMenuItem})
+        Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.DebugToolStripMenuItem.Text = "Debug"
+        '
+        'DebugProjectToolStripMenuItem
+        '
+        Me.DebugProjectToolStripMenuItem.Enabled = False
+        Me.DebugProjectToolStripMenuItem.Name = "DebugProjectToolStripMenuItem"
+        Me.DebugProjectToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.DebugProjectToolStripMenuItem.Text = "Debug Project with Citra"
+        '
+        'ReleaseToolStripMenuItem
+        '
+        Me.ReleaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CompileProjectToolStripMenuItem, Me.CompileScriptToolStripMenuItem, Me.ToolStripSeparator4, Me.BuildProjectToolStripMenuItem})
+        Me.ReleaseToolStripMenuItem.Name = "ReleaseToolStripMenuItem"
+        Me.ReleaseToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+        Me.ReleaseToolStripMenuItem.Text = "Release"
+        '
+        'CompileProjectToolStripMenuItem
+        '
+        Me.CompileProjectToolStripMenuItem.Enabled = False
+        Me.CompileProjectToolStripMenuItem.Name = "CompileProjectToolStripMenuItem"
+        Me.CompileProjectToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.CompileProjectToolStripMenuItem.Text = "Compile Project"
+        '
+        'CompileScriptToolStripMenuItem
+        '
+        Me.CompileScriptToolStripMenuItem.Enabled = False
+        Me.CompileScriptToolStripMenuItem.Name = "CompileScriptToolStripMenuItem"
+        Me.CompileScriptToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.CompileScriptToolStripMenuItem.Text = "Compile Script"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(156, 6)
+        '
+        'BuildProjectToolStripMenuItem
+        '
+        Me.BuildProjectToolStripMenuItem.Enabled = False
+        Me.BuildProjectToolStripMenuItem.Name = "BuildProjectToolStripMenuItem"
+        Me.BuildProjectToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.BuildProjectToolStripMenuItem.Text = "Build Project"
+        '
         'TabControl1
         '
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -162,4 +245,15 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents CloseProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModifyToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SyntaxToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DebugToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Lpp3dsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DebugProjectToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReleaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CompileProjectToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CompileScriptToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents BuildProjectToolStripMenuItem As ToolStripMenuItem
 End Class
