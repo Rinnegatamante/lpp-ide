@@ -16,6 +16,11 @@
         'Set Project Path
         Globals.project_path = TextBox2.Text
 
+        'Create needed folders
+        If Not System.IO.Directory.Exists(TextBox2.Text & "/Release") Then
+            System.IO.Directory.CreateDirectory(TextBox2.Text & "/Release")
+        End If
+
         'Create new script (index.lua)
         Dim page As New TabPage
         page.Text = "index.lua"
@@ -33,6 +38,10 @@
         Form1.SaveFileToolStripMenuItem.Enabled = True
         Form1.SaveProjectToolStripMenuItem.Enabled = True
         Form1.CloseProjectToolStripMenuItem.Enabled = True
+        Form1.DebugProjectToolStripMenuItem.Enabled = True
+        Form1.CompileProjectToolStripMenuItem.Enabled = True
+        Form1.CompileScriptToolStripMenuItem.Enabled = True
+        Form1.BuildProjectToolStripMenuItem.Enabled = True
 
         'Close New Project Form
         Me.Close()
