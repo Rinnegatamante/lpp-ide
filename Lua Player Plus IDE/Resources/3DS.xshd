@@ -23,10 +23,6 @@
 				<Span begin="\\" end="." />
 			</RuleSet>
 		</Span>
-		<Span foreground="#FFFF6600">
-			<Begin>/(?!(\ ))</Begin>
-			<End>/</End>
-		</Span>
 		<Keywords foreground="DarkCyan">
       <Word>true</Word>
       <Word>false</Word>
@@ -66,6 +62,8 @@
       <Word>Font</Word>
       <Word>Controls</Word>
       <Word>Timer</Word>
+      <Word>collectgarbage</Word>
+      <Word>dofile</Word>
     </Keywords>
     <Keywords foreground="Orange">
       <Word>TOP_SCREEN</Word>
@@ -81,9 +79,21 @@
       <Word>KEY_TOUCH</Word>
       <Word>KEY_L</Word>
       <Word>KEY_R</Word>
+      <Word>KEY_ZL</Word>
+      <Word>KEY_ZR</Word>
+      <Word>KEY_HOME</Word>
+      <Word>KEY_POWER</Word>
       <Word>FREAD</Word>
       <Word>FWRITE</Word>
       <Word>FCREATE</Word>
+      <Word>LEFT_EYE</Word>
+      <Word>RIGHT_EYE</Word>
+      <Word>LOOP</Word>
+      <Word>NO_LOOP</Word>
+      <Word>NAND</Word>
+      <Word>SDMC</Word>
+      <Word>APP_EXITING</Word>
+      <Word>APP_RUNNING</Word>
     </Keywords>
 	</RuleSet>
 	<RuleSet name="comments set">
