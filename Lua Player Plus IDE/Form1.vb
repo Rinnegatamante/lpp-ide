@@ -6,6 +6,8 @@ Imports System.IO
 Imports System.Xml
 Imports System.Reflection
 Imports System.Windows.Input
+Imports FindReplace
+Imports FindReplace.FindReplaceDialog
 
 Public Class Form1
 
@@ -269,87 +271,42 @@ Public Class Form1
         End If
     End Sub
 
-    'White Theme button
-    Private Sub WhiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WhiteToolStripMenuItem.Click
-        Globals.dark = False
-        Globals.selected = Color.DarkGray
-        Globals.not_selected = ColorTranslator.FromOle(RGB(245, 245, 245))
-        MenuStrip1.BackColor = Globals.not_selected
-        MenuStrip1.ForeColor = Color.Black
-        Me.BackColor = ColorTranslator.FromOle(RGB(245, 245, 245))
-        MenuStrip1.Renderer = New Globals.MyRenderer()
-        For Each x As ToolStripMenuItem In MenuStrip1.Items
-            For Each z As ToolStripMenuItem In x.DropDownItems
-                z.ForeColor = Color.Black
-            Next
-        Next
+    'Editor text changed callback
+    Private Shared Function Citra_Exited(sender As Object, e As EventArgs) As EventHandler
         Dim i As Integer = 0
         While i < Globals.pages
-            Globals.ReloadEditor(Globals.editors(i))
+            Globals.SaveFile(i)
+            IO.File.Delete("Citra\user\sdmc\scripts\" & Globals.names(i))
             i = i + 1
         End While
-    End Sub
+        Globals.isCitraOn = False
+    End Function
 
-    'Dark Theme button
-    Private Sub DarkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DarkToolStripMenuItem.Click
-        Globals.dark = True
-        Globals.selected = ColorTranslator.FromOle(RGB(63, 63, 70))
-        Globals.not_selected = ColorTranslator.FromOle(RGB(45, 45, 48))
-        MenuStrip1.BackColor = Globals.not_selected
-        MenuStrip1.ForeColor = Color.White
-        Me.BackColor = ColorTranslator.FromOle(RGB(45, 45, 48))
-        Me.ForeColor = ColorTranslator.FromOle(RGB(45, 45, 48))
-        MenuStrip1.Renderer = New Globals.MyRenderer()
-        For Each x As ToolStripMenuItem In MenuStrip1.Items
-            For Each z As ToolStripMenuItem In x.DropDownItems
-                z.ForeColor = Color.White
-            Next
-        Next
+    'Debug Project button
+    Private Sub DebugProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DebugProjectToolStripMenuItem.Click
         Dim i As Integer = 0
         While i < Globals.pages
-            Globals.ReloadEditor(Globals.editors(i))
+            Globals.SaveFile(i)
+            IO.File.Copy(Globals.project_path & "\" & Globals.names(i), "Citra\user\sdmc\scripts\" & Globals.names(i), True)
             i = i + 1
         End While
+        Dim x = Process.Start("Citra\Citra.exe", "Citra\lpp-3ds.3dsx")
+        Globals.isCitraOn = True
+
+        'Set Citra Exiting callback
+        AddHandler(x.Exited), AddressOf Citra_Exited
     End Sub
 
-    'Loading IDE
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MenuStrip1.Renderer = New Globals.MyRenderer()
+    'Find button
+    Private Sub FindToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FindToolStripMenuItem.Click
+        Globals.PrepareFindReplace()
+        Globals.frm.ShowAsFind()
     End Sub
 
-    'Custom TabControl Drawing Function
-    Private Sub TabControl1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem
-        Dim g As Graphics = e.Graphics
-        Dim tp As TabPage = TabControl1.TabPages(e.Index)
-        Dim br As Brush
-        Dim sf As New StringFormat
-        Dim r As New RectangleF(e.Bounds.X, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height - 2)
-        sf.Alignment = StringAlignment.Center
-        Dim strTitle As String = tp.Text
-        If TabControl1.SelectedIndex = e.Index Then
-            If Globals.dark Then
-                br = New SolidBrush(ColorTranslator.FromOle(RGB(30, 30, 30)))
-                g.FillRectangle(br, e.Bounds)
-                br = New SolidBrush(Color.White)
-            Else
-                br = New SolidBrush(Color.White)
-                g.FillRectangle(br, e.Bounds)
-                br = New SolidBrush(Color.Black)
-            End If
-            g.DrawString(strTitle, TabControl1.Font, br, r, sf)
-        Else
-            br = New SolidBrush(Globals.not_selected)
-            g.FillRectangle(br, e.Bounds)
-            If Globals.dark Then
-                br = New SolidBrush(Color.White)
-            Else
-                br = New SolidBrush(Color.Black)
-            End If
-            g.DrawString(strTitle, TabControl1.Font, br, r, sf)
-        End If
-
+    Private Sub ReplaceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReplaceToolStripMenuItem.Click
+        Globals.PrepareFindReplace()
+        Globals.frm.ShowAsReplace()
     End Sub
-
 End Class
 
 Public Class Globals
@@ -363,33 +320,44 @@ Public Class Globals
     Public Shared index As Integer = 0
     Public Shared syntax As Byte() = Lua_Player_Plus_IDE.My.Resources._3DS
     Public Shared mode As String = "3DS"
-    Public Shared dark As Boolean = False
-    Public Shared selected As Color = Color.DarkGray
-    Public Shared not_selected As Color = ColorTranslator.FromOle(RGB(245, 245, 245))
+    Public Shared isCitraOn As Boolean = False
+    Public Shared frm As FindReplace.FindReplaceMgr = New FindReplace.FindReplaceMgr()
+
 
     'Global callbacks
 
     'Editor text changed callback
     Private Shared Function Editor_TextChanged(sender As Object, e As EventArgs) As EventHandler
-        If saved(Globals.index) Then
-            saved(Globals.index) = False
-            Form1.TabControl1.SelectedTab.Text = names(Globals.index) & "*"
-        End If
+        Dim x = DirectCast(sender, AvalonEdit_WinFormHost)
+        Dim tab As TabPage = x.Parent
+        Form1.TabControl1.SelectedIndex = tab.TabIndex
     End Function
 
-    'MenuStrip Renderer callback
-    Public Class MyRenderer
-        Inherits ToolStripProfessionalRenderer
-        Protected Overloads Overrides Sub OnRenderMenuItemBackground(ByVal e As ToolStripItemRenderEventArgs)
-            Dim c As Color = IIf(e.Item.Selected, selected, not_selected)
-            Dim rc As New Rectangle(Point.Empty, e.Item.Size)
-            Using brush As New SolidBrush(c)
-                e.Graphics.FillRectangle(brush, rc)
-            End Using
-        End Sub
-    End Class
+    Private Shared Function test(sender As Object, e As EventArgs) As EventHandler
+        Dim x = DirectCast(sender, FindReplaceMgr)
+        Dim i = 0
+        While i < pages
+            If editors(i) = frm.CurrentEditor Then
+                index = i
+                Form1.TabControl1.SelectedIndex = index
+                Exit While
+            End If
+            i = i + 1
+        End While
+    End Function
 
     'Global functions
+
+    'PrepareFindReplace (Prepare Find/Replace feature)
+    Public Shared Function PrepareFindReplace()
+        Dim x As AvalonEdit_WinFormHost = editors(index)
+        frm.CurrentEditor = New TextEditorAdapter(x.TextEditor)
+        frm.Editors = editors
+        frm.ShowSearchIn = True
+
+        AddHandler frm.FindBinding.Executed, AddressOf test
+        Return 1
+    End Function
 
     'PrepareEditor (Create a new Editor instance for a LUA script)
     Public Shared Function PrepareEditor(editor As AvalonEdit_WinFormHost, page As TabPage)
@@ -403,14 +371,6 @@ Public Class Globals
         editor.Dock = DockStyle.Fill
         editor.TextEditor.FontSize = 12
         editor.TextEditor.ShowLineNumbers = True
-        Dim custom As New System.Windows.Media.BrushConverter()
-        If dark Then
-            editor.TextEditor.Background = custom.ConvertFromString("#1E1E1E")
-            editor.TextEditor.Foreground = System.Windows.Media.Brushes.White
-        Else
-            editor.TextEditor.Background = System.Windows.Media.Brushes.White
-            editor.TextEditor.Foreground = System.Windows.Media.Brushes.Black
-        End If
 
         'Set TextEditor callbacks
         AddHandler(editor.TextEditor.TextChanged), AddressOf Editor_TextChanged
@@ -431,11 +391,6 @@ Public Class Globals
         'Set TextEditor properties
         editor.TextEditor.FontSize = 12
         editor.TextEditor.ShowLineNumbers = True
-        If dark Then
-            Dim custom As New System.Windows.Media.BrushConverter()
-            editor.TextEditor.Background = custom.ConvertFromString("#1E1E1E")
-            editor.TextEditor.Foreground = System.Windows.Media.Brushes.White
-        End If
 
         Return 1
     End Function
@@ -449,6 +404,9 @@ Public Class Globals
         p = project_path & "\" & Form1.TabControl1.TabPages(idx).Text
         Dim tmp As AvalonEdit_WinFormHost = editors(idx)
         System.IO.File.WriteAllText(p, tmp.TextEditor.Text)
+        If isCitraOn Then
+            System.IO.File.WriteAllText("Citra\user\sdmc\scripts\" & Form1.TabControl1.TabPages(idx).Text, tmp.TextEditor.Text)
+        End If
         saved(idx) = True
         Return 1
     End Function
@@ -471,7 +429,7 @@ Public Class Globals
     'CompileFile (Compile a script with luaC)
     Public Shared Function CompileFile(idx As Integer)
         Dim target = project_path & "\" & names(idx)
-        Process.Start("luac", "-o " & project_path & "\Release\" & names(idx) & " " & target)
+        Process.Start("LuaC\luac.exe", "-o " & project_path & "\Release\" & names(idx) & " " & target)
         Return 1
     End Function
 

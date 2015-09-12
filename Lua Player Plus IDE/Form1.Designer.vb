@@ -34,6 +34,8 @@ Partial Class Form1
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FindToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReplaceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SyntaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Lpp3dsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,16 +44,13 @@ Partial Class Form1
         Me.CompileProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompileScriptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuildProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ThemeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.WhiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.SearchToolStripMenuItem, Me.SyntaxToolStripMenuItem, Me.DebugToolStripMenuItem, Me.ReleaseToolStripMenuItem, Me.ThemeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.SearchToolStripMenuItem, Me.SyntaxToolStripMenuItem, Me.DebugToolStripMenuItem, Me.ReleaseToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1176, 24)
@@ -126,9 +125,22 @@ Partial Class Form1
         '
         'SearchToolStripMenuItem
         '
+        Me.SearchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FindToolStripMenuItem, Me.ReplaceToolStripMenuItem})
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
         Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.SearchToolStripMenuItem.Text = "Search"
+        '
+        'FindToolStripMenuItem
+        '
+        Me.FindToolStripMenuItem.Name = "FindToolStripMenuItem"
+        Me.FindToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FindToolStripMenuItem.Text = "Find..."
+        '
+        'ReplaceToolStripMenuItem
+        '
+        Me.ReplaceToolStripMenuItem.Name = "ReplaceToolStripMenuItem"
+        Me.ReplaceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReplaceToolStripMenuItem.Text = "Replace..."
         '
         'SyntaxToolStripMenuItem
         '
@@ -185,29 +197,9 @@ Partial Class Form1
         Me.BuildProjectToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.BuildProjectToolStripMenuItem.Text = "Build Project"
         '
-        'ThemeToolStripMenuItem
-        '
-        Me.ThemeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.WhiteToolStripMenuItem, Me.DarkToolStripMenuItem})
-        Me.ThemeToolStripMenuItem.Name = "ThemeToolStripMenuItem"
-        Me.ThemeToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
-        Me.ThemeToolStripMenuItem.Text = "Theme"
-        '
-        'WhiteToolStripMenuItem
-        '
-        Me.WhiteToolStripMenuItem.Name = "WhiteToolStripMenuItem"
-        Me.WhiteToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
-        Me.WhiteToolStripMenuItem.Text = "White"
-        '
-        'DarkToolStripMenuItem
-        '
-        Me.DarkToolStripMenuItem.Name = "DarkToolStripMenuItem"
-        Me.DarkToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
-        Me.DarkToolStripMenuItem.Text = "Dark"
-        '
         'TabControl1
         '
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.TabControl1.HotTrack = True
         Me.TabControl1.Location = New System.Drawing.Point(0, 24)
         Me.TabControl1.Name = "TabControl1"
@@ -252,7 +244,6 @@ Partial Class Form1
     Friend WithEvents CompileProjectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CompileScriptToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuildProjectToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ThemeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents WhiteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DarkToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FindToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReplaceToolStripMenuItem As ToolStripMenuItem
 End Class
